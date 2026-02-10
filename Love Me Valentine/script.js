@@ -7,11 +7,11 @@ const noBtn = document.querySelector(".js-no-btn");
 
 // /change the postion of no button
 noBtn.addEventListener("mouseover", () => {
-  const newX = Math.floor(Math.random() * questionContainer.offsetWidth);
-  const newY = Math.floor(Math.random() * questionContainer.offsetWidth);
+  const maxX = questionContainer.offsetWidth - noBtn.offsetWidth;
+  const maxY = questionContainer.offsetHeight - noBtn.offsetHeight;
 
-  noBtn.style.left = `${newX}px`;
-  noBtn.style.top = `${newY}px`;
+  noBtn.style.left = `${Math.floor(Math.random() * maxX)}px`;
+  noBtn.style.top = `${Math.floor(Math.random() * maxY)}px`;
 });
 
 // yes button functionality
@@ -23,6 +23,5 @@ yesBtn.addEventListener("click", () => {
   const timeoutId = setTimeout(() => {
     heartLoader.style.display = "none";
     resultContainer.style.display = "inherit";
-    gifResult.play();
   }, 3000);
 });
